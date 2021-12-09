@@ -58,13 +58,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.setCity("Miami");
         owner2.setTelephone("123123123");
 
-        Pet fionasCat = new Pet();
-        fionasCat.setName("Just Cat");
-        fionasCat.setOwner(owner2);
-        fionasCat.setBirthDate(LocalDate.now());
-        fionasCat.setPetType(savedCatPetType);
+        Pet fionasPet = new Pet();
+        fionasPet.setName("Just Cat");
+        fionasPet.setOwner(owner2);
+        fionasPet.setBirthDate(LocalDate.now());
+        fionasPet.setPetType(savedCatPetType);
 
-        owner2.getPets().add(fionasCat);
+        owner2.getPets().add(fionasPet);
 
         ownerService.save(owner2);
 
