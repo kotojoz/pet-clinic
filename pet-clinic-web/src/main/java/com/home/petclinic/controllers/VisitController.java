@@ -25,17 +25,17 @@ public class VisitController {
             this.petService = petService;
         }
 
-        @InitBinder
-        public void dataBinder(WebDataBinder dataBinder) {
-            dataBinder.setDisallowedFields("id");
+    @InitBinder
+    public void dataBinder(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
 
-            dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
-                @Override
-                public void setAsText(String text) throws IllegalArgumentException{
-                    setValue(LocalDate.parse(text));
-                }
-            });
-        }
+        dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
+            @Override
+            public void setAsText(String text) throws IllegalArgumentException{
+                setValue(LocalDate.parse(text));
+            }
+        });
+    }
 
         /**
          * Called before each and every @RequestMapping annotated method.
