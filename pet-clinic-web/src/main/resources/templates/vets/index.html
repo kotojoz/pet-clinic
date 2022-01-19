@@ -5,22 +5,24 @@
     <title>List of Vets</title>
 </head>
 <body>
-    <h2>Veterinarians</h2>
-    <table id="vets" class="table table-striped">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="vet :${vets}">
-            <th th:text="${vet.id}">1</th>
-            <th th:text="${vet.firstName}">Joe</th>
-            <th th:text="${vet.lastName}">Bruck</th>
-        </tr>
-        </tbody>
-    </table>
+<!--/*@thymesVar id="vet" type="com.home.petclinic.model.Vet"*/-->
+<h2>Veterinarians</h2>
+
+<table id="vets" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Specialties</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vet : ${vets}">
+        <td th:text="${vet.firstName + ' ' + vet.lastName}"></td>
+        <td><span th:each="specialty : ${vet.specialties}"
+                  th:text="${specialty.description + ' '}" /> <span
+                th:if="${vet?.specialties?.size() == 0}">none</span></td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
